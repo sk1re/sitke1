@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0, minimum-scale=0.5">
+    <title>Для тебя вуман ❤️</title>
+    <!-- Подключение шрифта для собранного сердца -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Внешний файл стилей -->
+    <link rel="stylesheet" href="css/stylescard.css">
+</head>
+<body>
+
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <div class="main-wrapper">
+        <div class="header-area">
+            <div class="editable-title" contenteditable="true" role="textbox" id="editableTitle">Моей любимой девочке 💕</div>
+            <p class="puzzle-hint">собери осколки моего сердца</p>
+        </div>
+
+        <div class="puzzle-zone" id="puzzleZone">
+            <div class="target-heart-outline" id="targetOutline">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path class="outline-path"
+                    d="M100 170 C100 170,8 110,8 64 C8 18,52 14,100 46 C148 14,192 18,192 64 C192 110,100 170,100 170 Z" />
+                </svg>
+            </div>
+
+            <div class="pieces-layer" id="piecesLayer">
+               
+                <!-- Фото 1 (скрывает левый верхний осколок) -->
+                <div class="photo-wrapper" id="photo1" style="transform: translate(-315px, -165px);">
+                    <img src="photo1.jpg" alt="Фото 1">
+                </div>
+
+                <!-- Фото 2 (скрывает правый верхний осколок) -->
+                <div class="photo-wrapper" id="photo2" style="transform: translate(315px, -120px);">
+                    <img src="photo2.jpg" alt="Фото 2">
+                </div>
+
+                <!-- Фото 3 (скрывает нижний осколок) -->
+                <div class="photo-wrapper" id="photo3" style="transform: translate(10px, 315px);">
+                    <img src="photo3.jpg" alt="Фото 3">
+                </div>
+
+                <!-- Фото 4 (пустое, без пазла) -->
+                <div class="photo-wrapper" id="photo4" style="transform: translate(-250px, 220px);">
+                    <img src="photo4.jpg" alt="Фото 4">
+                </div>
+
+                <!-- Фото 5 (пустое, без пазла) -->
+                <div class="photo-wrapper" id="photo5" style="transform: translate(260px, 200px);">
+                    <img src="photo5.jpg" alt="Фото 5">
+                </div>
+
+                <!-- Фото 6 (пустое, без пазла) -->
+                <div class="photo-wrapper" id="photo6" style="transform: translate(300px, 400px);">
+                    <img src="photo6.jpg" alt="Фото 6">
+                </div>
+
+                <!-- Левый верхний осколок  -->
+                <div class="puzzle-piece" data-piece="1" id="piece1"
+                style="z-index: 3; transform: translate(-315px, -165px);">
+                <svg viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="mask1">
+                            <rect width="200" height="200" fill="white" />
+                            <rect x="100" y="0" width="100" height="200" fill="black" />
+                            <polygon fill="black"
+                            points="0,92 15,92 18,85 24,88 30,81 38,86 46,80 54,85 62,79 70,84 80,78 88,83 100,80 108,83 116,78 124,83 132,79 140,85 148,81 156,86 164,80 172,85 180,80 185,88 200,88 200,200 0,200" />
+                        </mask>
+                    </defs>
+                    <g mask="url(#mask1)">
+                        <path class="piece-path"
+                        d="M100 170 C100 170,8 110,8 64 C8 18,52 14,100 46 C148 14,192 18,192 64 C192 110,100 170,100 170 Z" />
+                        <text class="piece-text" x="48" y="62" font-size="20">I</text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Правый верхний осколок  -->
+            <div class="puzzle-piece" data-piece="2" id="piece2"
+            style="z-index: 3; transform: translate(315px, -120px);">
+            <svg viewBox="0 0 200 200">
+                <defs>
+                    <mask id="mask2">
+                        <rect width="200" height="200" fill="white" />
+                        <rect x="0" y="0" width="100" height="200" fill="black" />
+                        <polygon fill="black"
+                        points="0,92 15,92 18,85 24,88 30,81 38,86 46,80 54,85 62,79 70,84 80,78 88,83 100,80 108,83 116,78 124,83 132,79 140,85 148,81 156,86 164,80 172,85 180,80 185,88 200,88 200,200 0,200" />
+                    </mask>
+                </defs>
+                <g mask="url(#mask2)">
+                    <path class="piece-path"
+                    d="M100 170 C100 170,8 110,8 64 C8 18,52 14,100 46 C148 14,192 18,192 64 C192 110,100 170,100 170 Z" />
+                    <text class="piece-text" x="148" y="62" font-size="16">love</text>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Нижний осколок (you) -->
+        <div class="puzzle-piece" data-piece="3" id="piece3"
+        style="z-index: 2; transform: translate(10px, 315px);">
+        <svg viewBox="0 0 200 200">
+            <defs>
+                <mask id="mask3">
+                    <rect width="200" height="200" fill="white" />
+                    <polygon fill="black"
+                    points="0,0 200,0 200,88 185,88 180,80 172,85 164,80 156,86 148,81 140,85 132,79 124,83 116,78 108,83 100,80 88,83 80,78 70,84 62,79 54,85 46,80 38,86 30,81 24,88 18,85 15,92 0,92" />
+                </mask>
+            </defs>
+            <g mask="url(#mask3)">
+                <path class="piece-path"
+                d="M100 170 C100 170,8 110,8 64 C8 18,52 14,100 46 C148 14,192 18,192 64 C192 110,100 170,100 170 Z" />
+                <text class="piece-text" x="100" y="135" font-size="18">you</text>
+            </g>
+        </svg>
+    </div>
+</div>
+</div>
+
+<div class="love-message-section" id="loveMessageSection">
+    <div class="love-card">
+        <div class="icon-row">💖</div>
+        <h2>Ты — моё сердце</h2>
+        <p class="message-text">
+            Спасибо что была со мной эти 3 года,<br> ты самый лучший человечек который научил меня
+             любить, ругаться, мириться,
+ радоваться, грустить и чувствовать самые глубокие чувства! я никогда не смогу отплатить тебе за то что ты для меня сделала
+эта маленькая работа ограничилась лишь моими знаниями, я делал ее от всего сердца, но из за того что я глуп, у меня не получилось показать
+все чувства которые к тебе чувствую. спасибо тебе за это прекрасное время и я очень надеюсь что нас ждет еще более прекрасные времена.
+Я люблю тебя мое солнышко
+в этот прекрасный день я хочу сделать тебя еще более счастливой
+        </p>
+        <p class="signature">— навсегда твой бешенный еж</p>
+    </div>
+    <!-- Кнопка перехода на другую страницу -->
+    <a href="pesnya.html" class="next-page-btn">🎵 Послушать нашу песню</a>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>
+</div>
+
+<script>
+    (function() {
+        const piecesLayer = document.getElementById('piecesLayer');
+        const loveMessageSection = document.getElementById('loveMessageSection');
+        const confettiContainer = document.getElementById('confettiContainer');
+        const floatingBg = document.getElementById('floatingBg');
+        const pieces = document.querySelectorAll('.puzzle-piece');
+        const photoWrappers = document.querySelectorAll('.photo-wrapper');
+
+        const snappedPieces = new Set();
+        let dragState = null;
+        const SNAP_THRESHOLD = 35;
+        let messageRevealed = false;
+
+        
+        const photoToPiece = {
+            'photo1': 'piece1',
+            'photo2': 'piece2',
+            'photo3': 'piece3'
+        };
+
+        
+        function revealPiece(photoId) {
+            const pieceId = photoToPiece[photoId];
+            if (pieceId) {
+                const piece = document.getElementById(pieceId);
+                if (piece) {
+                    piece.classList.add('visible');
+                    piece.style.transition =
+                        'opacity 0.5s ease, filter 0.3s, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1.2)';
+                }
+            }
+        }
+
+        
+        photoWrappers.forEach(photo => {
+            photo.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (this.classList.contains('fading-out')) return;
+
+                
+                this.classList.add('fading-out');
+
+                
+                revealPiece(this.id);
+
+                
+                setTimeout(() => {
+                    if (this.parentNode) this.remove();
+                }, 500);
+            });
+
+            
+            photo.addEventListener('dragstart', (e) => e.preventDefault());
+            photo.addEventListener('pointerdown', (e) => e.stopPropagation());
+        });
+
+        function createFloatingHearts() {
+            const hearts = ['💕', '💖', '💗', '💝', '❤️', '🩷', '💓', '✨', '🌸'];
+            for (let i = 0; i < 18; i++) {
+                const span = document.createElement('span');
+                span.className = 'floating-heart';
+                span.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                span.style.left = Math.random() * 90 + '%';
+                span.style.animationDuration = (10 + Math.random() * 18) + 's';
+                span.style.animationDelay = Math.random() * 14 + 's';
+                span.style.fontSize = (0.9 + Math.random() * 2) + 'rem';
+                floatingBg.appendChild(span);
+            }
+        }
+        createFloatingHearts();
+
+        function getPieceTranslation(piece) {
+            const transform = piece.style.transform;
+            const match = transform.match(/translate\(\s*([-\d.]+)px\s*,\s*([-\d.]+)px\s*\)/);
+            return match ? { x: parseFloat(match[1]), y: parseFloat(match[2]) } : { x: 0, y: 0 };
+        }
+
+        function setPieceTranslation(piece, x, y) {
+            piece.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function getPointerPos(e) {
+            const rect = piecesLayer.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return { x: clientX - rect.left, y: clientY - rect.top, clientX, clientY };
+        }
+
+        function findPieceUnderPointer(clientX, clientY) {
+            for (const piece of pieces) {
+                if (piece.classList.contains('snapped')) continue;
+                if (!piece.classList.contains('visible')) continue;
+                const rect = piece.getBoundingClientRect();
+                if (clientX >= rect.left && clientX <= rect.right &&
+                    clientY >= rect.top && clientY <= rect.bottom) {
+                    return piece;
+                }
+            }
+            return null;
+        }
+
+        function isNearTarget(tx, ty) {
+            return Math.sqrt(tx * tx + ty * ty) < SNAP_THRESHOLD;
+        }
+
+        function snapPiece(piece) {
+            const pieceId = piece.dataset.piece;
+            if (snappedPieces.has(pieceId)) return;
+
+            setPieceTranslation(piece, 0, 0);
+            piece.classList.add('snapped');
+            piece.style.zIndex = '1';
+            snappedPieces.add(pieceId);
+            spawnMiniSpark(piece);
+
+            if (snappedPieces.size === 3 && !messageRevealed) {
+                revealLoveMessage();
+            }
+        }
+
+        function spawnMiniSpark(piece) {
+            const rect = piece.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            for (let i = 0; i < 14; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti-particle';
+                particle.style.cssText = `
+                left: ${cx}px;
+                top: ${cy}px;
+                width: ${4 + Math.random() * 6}px;
+                height: ${4 + Math.random() * 6}px;
+                background: ${['#f9bbc7','#f5a0af','#f18a9c','#e8556d','#ffd1da','#ffe0e5'][Math.floor(Math.random()*6)]};
+                --dx: ${(Math.random()-0.5)*80}px;
+                --dy: ${(Math.random()-0.5)*80-20}px;
+                --rot: ${(Math.random()-0.5)*720}deg;
+                border-radius: ${Math.random()>0.5?'50%':'2px'};
+                animation-duration: ${0.7+Math.random()*1.2}s;
+              `;
+                confettiContainer.appendChild(particle);
+                particle.addEventListener('animationend', () => particle.remove());
+            }
+        }
+
+        function revealLoveMessage() {
+            messageRevealed = true;
+            loveMessageSection.classList.add('revealed');
+            spawnConfettiBurst();
+        
+            setTimeout(() => {
+                loveMessageSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 400);
+            const outlinePath = document.querySelector('.outline-path');
+            if (outlinePath) {
+                outlinePath.style.stroke = '#e8556d';
+                outlinePath.style.strokeDasharray = 'none';
+                outlinePath.style.animation = 'none';
+                outlinePath.style.transition = 'all 0.8s ease';
+                outlinePath.style.filter = 'drop-shadow(0 0 14px rgba(232,85,109,0.6))';
+                setTimeout(() => outlinePath.style.filter = 'drop-shadow(0 0 6px rgba(232,85,109,0.3))', 900);
+            }
+        }
+
+        function spawnConfettiBurst() {
+            const colors = ['#e8556d', '#f9bbc7', '#f5a0af', '#f18a9c', '#ffd1da', '#ffe0e5', '#ffb3c1', '#ff8fa3',
+                '#fb6f92', '#ffc2d1', '#fff', '#fde4ec'
+            ];
+            const cx = window.innerWidth / 2;
+            const cy = window.innerHeight / 2;
+            for (let i = 0; i < 80; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'confetti-particle';
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 120 + Math.random() * 300;
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance - 60;
+                particle.style.cssText = `
+                left: ${cx}px; top: ${cy}px;
+                width: ${5+Math.random()*12}px; height: ${5+Math.random()*12}px;
+                background: ${colors[Math.floor(Math.random()*colors.length)]};
+                --dx: ${dx}px; --dy: ${dy}px;
+                --rot: ${(Math.random()-0.5)*900}deg;
+                border-radius: ${Math.random()>0.5?'50%':(Math.random()>0.5?'3px':'1px')};
+                animation-duration: ${1.5+Math.random()*2.5}s;
+                animation-delay: ${Math.random()*0.4}s;
+              `;
+                confettiContainer.appendChild(particle);
+                particle.addEventListener('animationend', () => particle.remove());
+            }
+        }
+
+        function onPointerDown(e) {
+            if (dragState) return;
+            const { clientX, clientY } = getPointerPos(e);
+            const piece = findPieceUnderPointer(clientX, clientY);
+            if (!piece || piece.classList.contains('snapped')) return;
+            e.preventDefault();
+            const translation = getPieceTranslation(piece);
+            const pos = getPointerPos(e);
+            dragState = {
+                piece,
+                startTx: translation.x,
+                startTy: translation.y,
+                startPx: pos.x,
+                startPy: pos.y,
+            };
+            piece.classList.add('dragging');
+            piece.style.zIndex = '15';
+            piece.setPointerCapture(e.pointerId || 1);
+        }
+
+        function onPointerMove(e) {
+            if (!dragState) return;
+            e.preventDefault();
+            const pos = getPointerPos(e);
+            const dx = pos.x - dragState.startPx;
+            const dy = pos.y - dragState.startPy;
+            const newTx = dragState.startTx + dx;
+            const newTy = dragState.startTy + dy;
+            setPieceTranslation(dragState.piece, newTx, newTy);
+            dragState.piece.style.filter = isNearTarget(newTx, newTy) ?
+                'drop-shadow(0 0 18px rgba(232,85,109,0.7)) brightness(1.1)' :
+                '';
+        }
+
+        function onPointerUp(e) {
+            if (!dragState) return;
+            e.preventDefault();
+            const piece = dragState.piece;
+            const translation = getPieceTranslation(piece);
+            piece.classList.remove('dragging');
+            piece.style.filter = '';
+            if (isNearTarget(translation.x, translation.y)) {
+                snapPiece(piece);
+            } else {
+                const origTx = parseFloat(piece.dataset.origTx || translation.x);
+                const origTy = parseFloat(piece.dataset.origTy || translation.y);
+                piece.style.transition = 'transform 0.5s cubic-bezier(0.25,0.8,0.25,1.2), filter 0.3s';
+                setPieceTranslation(piece, origTx, origTy);
+                setTimeout(() => {
+                    if (!piece.classList.contains('snapped'))
+                        piece.style.transition =
+                        'filter 0.3s, transform 0.45s cubic-bezier(0.25,0.8,0.25,1.2)';
+                }, 550);
+            }
+            dragState = null;
+        }
+
+        function storeOriginalPositions() {
+            pieces.forEach(piece => {
+                const t = getPieceTranslation(piece);
+                piece.dataset.origTx = t.x;
+                piece.dataset.origTy = t.y;
+            });
+        }
+        storeOriginalPositions();
+
+        piecesLayer.addEventListener('pointerdown', onPointerDown);
+        document.addEventListener('pointermove', onPointerMove);
+        document.addEventListener('pointerup', onPointerUp);
+        document.addEventListener('pointercancel', onPointerUp);
+
+        puzzleZone.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.puzzle-piece') && !e.target.closest('.snapped')) return;
+        }, { passive: false });
+
+        const editableTitle = document.getElementById('editableTitle');
+        editableTitle.addEventListener('focus', () => {
+            if (editableTitle.textContent.trim() === 'Введи своё послание...') editableTitle.textContent =
+                '';
+        });
+        editableTitle.addEventListener('blur', () => {
+            if (editableTitle.textContent.trim() === '') editableTitle.textContent = 'Моей любимой 💕';
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && document.activeElement === editableTitle) {
+                e.preventDefault();
+                editableTitle.blur();
+            }
+        });
+
+        console.log('УМОЛЯЮ, ИЗНАСИЛУЙТЕ МОЙ МОЗГ');
+    })();
+    
+</script>
+</body>
+</html>

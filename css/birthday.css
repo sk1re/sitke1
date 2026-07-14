@@ -1,0 +1,96 @@
+:root {
+    --bg: #fdf2f4;
+    --heart-color: #e8556d;
+    --text-dark: #5a1a2c;
+    --shadow: 0 10px 30px rgba(120, 30, 50, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(165deg, #fce4ec 0%, #fdf2f4 25%, #fff5f6 50%, #fce8ec 75%, #f9dfe4 100%);
+    background-attachment: fixed;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.floating-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.main-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    min-height: 100vh;
+    padding: 30px 16px;
+    text-align: center;
+}
+
+.birthday-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #b84c62;
+    text-shadow: 3px 3px 10px rgba(232, 85, 109, 0.3);
+    margin-bottom: 40px;
+    line-height: 1.3;
+    animation: gentleTitle 2s ease-in-out infinite alternate;
+}
+
+@keyframes gentleTitle {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+.goto-card-btn {
+    background: linear-gradient(135deg, #e8556d, #f28b9c);
+    color: #fff;
+    border: none;
+    padding: 18px 44px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(232, 85, 109, 0.45);
+    transition: all 0.4s ease;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.goto-card-btn:hover {
+    background: linear-gradient(135deg, #d43f5b, #e07a8b);
+    box-shadow: 0 16px 36px rgba(232, 85, 109, 0.6);
+    transform: translateY(-3px);
+}
+
+.goto-card-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 8px 20px rgba(232, 85, 109, 0.4);
+}
+
+@media (max-width: 600px) {
+    .birthday-title { font-size: 2.8rem; }
+    .goto-card-btn { font-size: 1.4rem; padding: 14px 32px; }
+}
